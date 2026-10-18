@@ -1,0 +1,14 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Certificate common names in two scorecard ticket titles, not credentials."
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = [
+	'''^public/(?:index|imdex)\.html$''',
+	'''^index \(1\)\.html$''',
+	'''^Program Hygiene Scorecard_Main \(1\)\.html$''',
+]
+regexTarget = "match"
+regexes = ['''^keystore for CN=zlp194(?:45|52)\.vci\.att\.com"$''']
